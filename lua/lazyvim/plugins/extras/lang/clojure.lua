@@ -27,7 +27,16 @@ return {
   },
 
   -- Add s-exp mappings
-  { "PaterJason/nvim-treesitter-sexp", opts = {}, event = "LazyFile" },
+  {
+    "julienvincent/nvim-paredit",
+    lazy = true,
+    ft = { "clojure", "edn"},
+    config = function()
+      local paredit = require("nvim-paredit")
+      return paredit.setup()
+    end,
+  },
+
 
   -- Colorize the output of the log buffer
   {
